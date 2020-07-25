@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: Covid-19 Dashboard
 on:
   push:
     branches: [ master ]
@@ -16,7 +16,7 @@ jobs:
         node-version: 12
 
     - name: GitHub Action for Yarn
-      uses: Borales/actions-yarn@v2.3.0
+      uses: Borales/actions-yarn@v2.1.0
       with:
         # Yarn command
         cmd: install
@@ -26,5 +26,6 @@ jobs:
         
     - name: Installing surge
       run: npm install -g surge
+
     - name: Deploying on surge
-      run: surge ./build covid-19-dashboard-by-tayyab.surge.sh --token ${{ secrets.SURGE_TOKEN }}  
+      run: surge ./build covid19_tracking_tayyab.surge.sh/ --token ${{ secrets.SURGE_TOKEN }}  
