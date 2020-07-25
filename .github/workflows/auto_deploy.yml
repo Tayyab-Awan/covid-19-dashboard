@@ -1,0 +1,30 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+on:
+  push:
+    branches: [ master ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Installing Node.js modules
+      uses: actions/setup-node@v2-beta
+      with:
+        node-version: 12
+
+    - name: GitHub Action for Yarn
+      uses: Borales/actions-yarn@v2.3.0
+      with:
+        # Yarn command
+        cmd: install
+        
+    - name: Creating Build
+      run: yarn build
+        
+    - name: Installing surge
+      run: npm install -g surge
+    - name: Deploying on surge
+      run: surge ./build covid-19-dashboard-by-tayyab.surge.sh --token ${{ secrets.SURGE_TOKEN }}  
