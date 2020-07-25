@@ -1,0 +1,8 @@
+.top-countries-container {
+   width: 40%;
+}
+.top-country-cases{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
