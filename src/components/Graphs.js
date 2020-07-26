@@ -60,14 +60,14 @@ export const Graphs = () => {
     return (
        <div className={classes.root}>
             <Grid container spacing={3}>
-                <Grid item xs={12} sm={12}>
-                    <HorizontalBarChart countryData={getMaxCasesCountries()} />
-                </Grid>
                 <Grid item xs={12} sm={6}>
                     <BarChart casesData={casesData} />
                 </Grid>
                 <Grid item xs={12} sm={6}>
                     <DoughnutChart casesData={casesData} />
+                </Grid>
+                <Grid item xs={12} sm={12}>
+                    <HorizontalBarChart countryData={getMaxCasesCountries()} />
                 </Grid>
             </Grid>
        </div>
